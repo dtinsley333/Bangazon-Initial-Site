@@ -5,6 +5,9 @@ wwwroot/lib
 bin
 obj
 *.db
+DB
+*.DS_Store
+
 
 # User-specific files
 *.suo
