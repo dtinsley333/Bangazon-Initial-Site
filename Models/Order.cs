@@ -6,21 +6,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BangazonDelta.Models
 {
-  public class Product
+  public class Order
   {
     [Key]
-    public int ProductId {get;set;}
+    public int OrderId {get;set;}
 
     [Required]
-    [DataType(DataType.Date)]
-    [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-    public DateTime DateCreated {get;set;}
+    
+    public int UserId {get;set;}
 
     [Required]
-    [StringLength(255)]
-    public string Description { get; set; }
+    //int? means that PaymentTypeId can contain an integer or be null...//
+    public int? PaymentTypeId { get; set; }
 
-    [Required]
-    public double Price { get; set; }
   }
 }
