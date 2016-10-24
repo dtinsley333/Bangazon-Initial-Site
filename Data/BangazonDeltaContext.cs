@@ -10,7 +10,7 @@ namespace BangazonDelta.Data
         { }
 
         // What tables are you interacting with in this context class?
-        // public DbSet<Customer> Customer { get; set; }
+        public DbSet<User> User { get; set; }
         // public DbSet<Product> Product { get; set; }
         // public DbSet<Order> Order { get; set; }
         // public DbSet<PaymentType> PaymentType { get; set; }
