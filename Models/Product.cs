@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+// ProductTypeId [int] [FK]
 
 namespace BangazonDelta.Models
 {
@@ -12,9 +13,8 @@ namespace BangazonDelta.Models
     public int ProductId {get;set;}
 
     [Required]
-    [DataType(DataType.Date)]
-    [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-    public DateTime DateCreated {get;set;}
+    [StringLength(55)]
+    public string Name { get; set; }
 
     [Required]
     [StringLength(255)]
@@ -22,5 +22,15 @@ namespace BangazonDelta.Models
 
     [Required]
     public double Price { get; set; }
+
+    [Required]
+    public bool Sold { get; set; }
+
+    [Required]
+    public int UserId { get; set; }
+
+    [Required]
+    public int ProductTypeId { get; set; }
+
   }
 }
