@@ -28,8 +28,12 @@ namespace BangazonDelta.Models
     [Required]
     public int UserId { get; set; }
 
+    public User User {get;set;}
+
     [Required]
     public int ProductTypeId { get; set; }
+
+    public ICollection<OrderProduct> OrderProducts {get;set;}
 
   }
 }

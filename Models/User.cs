@@ -17,7 +17,10 @@ namespace BangazonDelta.Models
 
     [Required]
     [StringLength(55)]
-    public string LasttName { get; set; }
+    public string LastName { get; set; }
 
+    public ICollection<Product> Products {get;set;}
+
+    public ICollection<PaymentType> PaymentTypes {get;set;}
   }
 }

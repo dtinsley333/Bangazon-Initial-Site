@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -12,9 +11,13 @@ namespace BangazonDelta.Models
       public int OrderProductId {get;set;}
 
       [Required]
-      public int ProductId {get;}
+      public int ProductId {get; set;}
+
+      public Product Product {get;set;}
 
       [Required]
-      public int OrderId {get;}
+      public int OrderId {get; set;}
+
+      public Order Order {get;set;}
   }
 }

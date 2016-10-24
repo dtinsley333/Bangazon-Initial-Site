@@ -12,10 +12,13 @@ namespace BangazonDelta.Models
       public int ProductTypeId {get;set;}
 
       [Required]
+      [StringLength(55)]
       public string Name {get;set;}
 
       [Required]
       [StringLength(255)]
       public string Description {get;set;}
+
+      public ICollection<Product> Products {get;set;} 
   }
 }
