@@ -43,26 +43,7 @@ namespace BangazonTeamDelta.Controllers
                     throw;
                 }
             }
-            return CreatedAtRoute("GetUser", new { id = user.UserId }, user);
-        }
-
-        [HttpGet]
-        public IActionResult Get()
-        {
             return Ok();
         }
-
-        [HttpGet("{id}", Name = "GetUser")]
-        public IActionResult Get([FromRoute] int id)
-        {
-            return Ok();
-        }
-
-        private bool CustomerExists(int id)
-        {
-            return context.User.Count(e => e.UserId == id) > 0;
-        }
-
     }
-
 }
