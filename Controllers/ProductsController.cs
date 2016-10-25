@@ -26,6 +26,27 @@ namespace BangazonTeamDelta.Controllers
             return View(await context.ProductType.ToListAsync());
         }
 
+        public async Task<IActionResult> ProductTypeDetail([FromRoute]int id)
+        {
+            // If no id was in the route, return 404
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var productType = await context.ProductType
+                    .Include(s => s.Products)
+                    .SingleOrDefaultAsync(m => m.ProductTypeId == id);
+
+            // If product not found, return 404
+            if (productType == null)
+            {
+                return NotFound();
+            }
+
+            return View(productType);
+        }
+
         public async Task<IActionResult> Detail([FromRoute]int? id)
         {
             // If no id was in the route, return 404
