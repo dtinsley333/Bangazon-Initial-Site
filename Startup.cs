@@ -32,16 +32,6 @@ namespace BangazonDelta
             // Add framework services.
             services.AddMvc();
 
-            // Add CORS framework
-            services.AddCors(options =>
-            {
-                options.AddPolicy("AllowDevelopmentEnvironment",
-                    builder => builder
-                        .AllowAnyOrigin()
-                        .AllowAnyMethod()
-                        .AllowAnyHeader());
-            });
-
             string path = System.Environment.GetEnvironmentVariable("Bangazon_Db_Path");
             var connection = $"Filename={path}";
             Console.WriteLine($"connection = {connection}");
@@ -61,10 +51,12 @@ namespace BangazonDelta
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Products/Error");
             }
 
             app.UseStaticFiles();
+
+            DbInitializer.Initialize(app.ApplicationServices);
 
             app.UseMvc(routes =>
             {
