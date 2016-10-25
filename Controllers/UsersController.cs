@@ -6,11 +6,11 @@ using Microsoft.AspNetCore.Http;
 
 namespace BangazonTeamDelta.Controllers
 {
-    public class UserController : Controller
+    public class UsersController : Controller
     {
         private BangazonDeltaContext context;
 
-        public UserController(BangazonDeltaContext ctx){
+        public UsersController(BangazonDeltaContext ctx){
             context = ctx;
         }
 
@@ -33,14 +33,7 @@ namespace BangazonTeamDelta.Controllers
             }
             catch (DbUpdateException)
             {
-                if (CustomerExists(user.UserId))
-                {
-                    return new StatusCodeResult(StatusCodes.Status409Conflict);
-                }
-                else
-                {
                     throw;
-                }
             }
             return Ok();
         }
