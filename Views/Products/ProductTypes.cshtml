@@ -1,0 +1,13 @@
+@model IEnumerable<BangazonDelta.Models.ProductType>
+
+@{
+    ViewData["Title"] = "Product Types";
+}
+
+@foreach (var item in Model)
+{
+    <div class="row">
+        <div class="col-md-4">@Html.DisplayFor(modelItem => item.Name)</div>
+        <div class="col-md-4">@Html.DisplayFor(modelItem => item.Description)</div>
+    </div>
+}

@@ -21,14 +21,14 @@ namespace BangazonTeamDelta.Controllers
             return View(await context.Product.ToListAsync());
         }
 
-        public IActionResult About()
+        public async Task<IActionResult> ProductTypes()
         {
             ViewData["Message"] = "Your application description page.";
 
-            return View();
+            return View(await context.ProductType.ToListAsync());
         }
 
-        public IActionResult Contact()
+        public IActionResult Create()
         {
             ViewData["Message"] = "Your contact page.";
 
