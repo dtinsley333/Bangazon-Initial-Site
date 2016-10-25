@@ -11,13 +11,15 @@ namespace BangazonDelta.Models
     [Key]
     public int OrderId {get;set;}
 
-    [Required]
-    
     public int UserId {get;set;}
 
-    [Required]
+    public User User {get;set;}
+
     //int? means that PaymentTypeId can contain an integer or be null...//
     public int? PaymentTypeId { get; set; }
 
+    public PaymentType PaymentType {get;set;}
+
+    public ICollection<OrderProduct> OrderProducts {get;set;}
   }
 }

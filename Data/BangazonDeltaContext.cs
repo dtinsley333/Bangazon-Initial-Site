@@ -11,10 +11,11 @@ namespace BangazonDelta.Data
 
         // What tables are you interacting with in this context class?
         public DbSet<User> User { get; set; }
-        // public DbSet<Product> Product { get; set; }
-        // public DbSet<Order> Order { get; set; }
-        // public DbSet<PaymentType> PaymentType { get; set; }
-        // public DbSet<LineItem> LineItem { get; set; }
+        public DbSet<Product> Product { get; set; }
+        public DbSet<ProductType> ProductType { get; set; }
+        public DbSet<Order> Order { get; set; }
+        public DbSet<PaymentType> PaymentType { get; set; }
+        public DbSet<OrderProduct> OrderProduct { get; set; }
 
         // Set up your default timestamp formats for each class using a timestamp
         // protected override void OnModelCreating(ModelBuilder modelBuilder)
