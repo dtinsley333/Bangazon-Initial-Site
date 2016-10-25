@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using BangazonDelta.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace BangazonTeamDelta.Controllers
 {
-    public class HomeController : Controller
+    public class ProductsController : Controller
     {
-        public IActionResult Index()
+        private BangazonDeltaContext context;
+
+        public ProductsController(BangazonDeltaContext ctx)
         {
-            return View();
+            context = ctx;
+        }
+        public async Task<IActionResult> Index()
+        {
+            return View(await context.Product.ToListAsync());
         }
 
         public IActionResult About()
