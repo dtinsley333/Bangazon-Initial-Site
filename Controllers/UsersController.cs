@@ -1,5 +1,4 @@
 using BangazonDelta.Models;
-using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using BangazonDelta.Data;
 using Microsoft.EntityFrameworkCore;
