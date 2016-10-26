@@ -18,6 +18,8 @@ namespace BangazonDelta.Data
                   return;   // DB has been seeded
               }
 
+
+            //   USERS
               var users = new User[]
               {
                   new User { 
@@ -40,6 +42,8 @@ namespace BangazonDelta.Data
               }
               context.SaveChanges();
 
+
+            //   PRODUCT TYPES
               var productTypes = new ProductType[]
               {
                   new ProductType { 
@@ -63,6 +67,7 @@ namespace BangazonDelta.Data
               context.SaveChanges();
 
 
+            //   PRODUCTS
               var products = new Product[]
               {
                   new Product { 
@@ -122,24 +127,28 @@ namespace BangazonDelta.Data
               context.SaveChanges();
 
 
-
-
             //   ORDERPRODUCTS
-            //   var orders = new OrderProduct[]
-            //   {
-            //       new OrderProduct { 
+              var orderProducts = new OrderProduct[]
+              {
+                  new OrderProduct { 
+                      ProductId = 1,
+                      OrderId = 2
+                  },
+                  new OrderProduct { 
+                      ProductId = 2,
+                      OrderId = 3
+                  },
+                  new OrderProduct { 
+                      ProductId = 3,
+                      OrderId = 1
+                  }
+              };
 
-            //       }
-            //   };
-
-            //   foreach (OrderProduct i in orderProducts)
-            //   {
-            //       context.OrderProduct.Add(i);
-            //   }
-            //   context.SaveChanges();
-
-
-
+              foreach (OrderProduct i in orderProducts)
+              {
+                  context.OrderProduct.Add(i);
+              }
+              context.SaveChanges();
 
           }
        }
