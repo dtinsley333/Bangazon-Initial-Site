@@ -29,12 +29,12 @@ namespace BangazonTeamDelta.Controllers
             try
             {
                 context.SaveChanges();
+                return RedirectToAction("Index", "Products");
             }
             catch (DbUpdateException)
             {
                     throw;
             }
-            return Ok();
         }
     }
 }
