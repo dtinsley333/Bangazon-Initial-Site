@@ -19,7 +19,7 @@ namespace BangazonDelta
                 .Build();
 
             var host = new WebHostBuilder()
-                .UseConfiguration(config)
+                .UseConfiguration(config) 
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
