@@ -32,7 +32,7 @@ namespace BangazonDelta
             // Add framework services.
             services.AddMvc();
 
-            string path = System.Environment.GetEnvironmentVariable("Bangazon_Db_Path");
+            string path = System.Environment.GetEnvironmentVariable("Bangazon_Delta_Db_Path");
             var connection = $"Filename={path}";
             Console.WriteLine($"connection = {connection}");
             services.AddDbContext<BangazonDeltaContext>(options => options.UseSqlite(connection));

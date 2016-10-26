@@ -18,7 +18,7 @@ namespace BangazonTeamDelta.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] User user)
+        public IActionResult Create(User user)
         {
             if (!ModelState.IsValid)
             {
