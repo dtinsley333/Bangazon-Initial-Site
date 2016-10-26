@@ -2,7 +2,6 @@ using BangazonDelta.Models;
 using Microsoft.AspNetCore.Mvc;
 using BangazonDelta.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Http;
 
 namespace BangazonTeamDelta.Controllers
 {
