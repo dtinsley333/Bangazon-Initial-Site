@@ -79,15 +79,6 @@ namespace BangazonTeamDelta.Controllers
                                            Text = li.Name,
                                            Value = li.ProductTypeId.ToString()
                                         });
-
-            ViewData["CustomerId"] = context.User
-                                       .OrderBy(l => l.LastName)
-                                       .AsEnumerable()
-                                       .Select(li => new SelectListItem { 
-                                           Text = $"{li.FirstName} {li.LastName}",
-                                           Value = li.UserId.ToString()
-                                        });
-
             return View();
         }
         [HttpPost]
@@ -96,6 +87,7 @@ namespace BangazonTeamDelta.Controllers
         {
             if (ModelState.IsValid)
             {
+                product.UserId = 1; //Temporary
                 context.Add(product);
                 await context.SaveChangesAsync();
                 return RedirectToAction("Index");
