@@ -4,11 +4,13 @@
     ViewData["Title"] = "Product Types";
 }
 
+<h2>@ViewData["Title"]</h2>
+
+<hr/>
 @foreach (var item in Model)
 {
     <div class="row">
-        <div class="col-md-4">@Html.DisplayFor(modelItem => item.Name)</div>
+        <div class="col-md-4"><a asp-action="ProductTypeDetail" asp-route-id="@item.ProductTypeId">@Html.DisplayFor(modelItem => item.Name)</a></div>
         <div class="col-md-4">@Html.DisplayFor(modelItem => item.Description)</div>
-        <div class="col-md-4"><a asp-action="ProductTypeDetail" asp-route-id="@item.ProductTypeId">All Products of This Type</a></div>
     </div>
 }

@@ -18,7 +18,7 @@ namespace BangazonTeamDelta.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] User user)
+        public IActionResult Create(User user)
         {
             if (!ModelState.IsValid)
             {
@@ -29,12 +29,12 @@ namespace BangazonTeamDelta.Controllers
             try
             {
                 context.SaveChanges();
+                return RedirectToAction("Index", "Products");
             }
             catch (DbUpdateException)
             {
                     throw;
             }
-            return Ok();
         }
     }
 }
