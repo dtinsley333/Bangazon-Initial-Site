@@ -96,6 +96,51 @@ namespace BangazonDelta.Data
                   context.Product.Add(i);
               }
               context.SaveChanges();
+
+
+            //   ORDERS
+              var orders = new Order[]
+              {
+                  new Order { 
+                      UserId = users.Single(s => s.FirstName == "Tractor").UserId,
+                      PaymentTypeId = null
+                  },
+                  new Order { 
+                      UserId = users.Single(s => s.FirstName == "Steve").UserId,
+                      PaymentTypeId = null
+                  },
+                  new Order { 
+                      UserId = users.Single(s => s.FirstName == "Carson").UserId,
+                      PaymentTypeId = null
+                  }
+              };
+
+              foreach (Order i in orders)
+              {
+                  context.Order.Add(i);
+              }
+              context.SaveChanges();
+
+
+
+
+            //   ORDERPRODUCTS
+            //   var orders = new OrderProduct[]
+            //   {
+            //       new OrderProduct { 
+
+            //       }
+            //   };
+
+            //   foreach (OrderProduct i in orderProducts)
+            //   {
+            //       context.OrderProduct.Add(i);
+            //   }
+            //   context.SaveChanges();
+
+
+
+
           }
        }
     }
