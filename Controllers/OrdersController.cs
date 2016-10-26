@@ -27,34 +27,24 @@ namespace BangazonTeamDelta.Controllers
                 return NotFound();
             }
 
-
-            // var userOrder = await context.Order
-            //     .Include(order => order.User)
-            //     .SingleOrDefaultAsync(order => order.UserId == userId && order.PaymentTypeId == null);
-                    //this logic is to get the orderId. This happens by getting all of the orders, then checking for the order that has the userId on it and then making sure the order has not been completed by checking if PaymentTypeId == null
-
-            // var productsOnOrder = await context.OrderProduct
-            //     .Include(o => o.Order)
-            //     .Where(a => a.OrderId == userOrder.OrderId);
-                    //this logic is checking for the products that are associated with the orderId by getting all of the OrderProduct objects and checking for the OrderId and grabing the products 
-
-            UserOrderViewModel model = new UserOrderViewModel(context);
-
             var productsOnOrder =
             from ord in context.Order
             join uid in context.User on ord.UserId equals uid.UserId
             join op in context.OrderProduct on ord.OrderId equals op.OrderId
             join prod in context.Product on op.ProductId equals prod.ProductId
-            where op.ProductId == prod.ProductId 
+            where ord.UserId == 3
+            && ord.PaymentTypeId == null
+            && prod.Sold == false
             select prod;
 
+            UserOrderViewModel uorder = new UserOrderViewModel();
+            uorder.Product = productsOnOrder;
 
             if (productsOnOrder == null)
             {
                 return View();
             }
-
-            return View(productsOnOrder);
+            return View(uorder);
         }
 
     }
