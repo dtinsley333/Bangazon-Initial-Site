@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BangazonDelta.Data;
 using Microsoft.EntityFrameworkCore;
+using BangazonDelta.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BangazonTeamDelta.Controllers
 {
@@ -67,12 +69,38 @@ namespace BangazonTeamDelta.Controllers
 
             return View(product);
         }
-
+        [HttpGet]
         public IActionResult Create()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["ProductTypeId"] = context.ProductType
+                                       .OrderBy(l => l.Name)
+                                       .AsEnumerable()
+                                       .Select(li => new SelectListItem { 
+                                           Text = li.Name,
+                                           Value = li.ProductTypeId.ToString()
+                                        });
+
+            ViewData["CustomerId"] = context.User
+                                       .OrderBy(l => l.LastName)
+                                       .AsEnumerable()
+                                       .Select(li => new SelectListItem { 
+                                           Text = $"{li.FirstName} {li.LastName}",
+                                           Value = li.UserId.ToString()
+                                        });
 
             return View();
+        }
+         [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Add(product);
+                await context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            return View(product);
         }
 
         public IActionResult Error()
