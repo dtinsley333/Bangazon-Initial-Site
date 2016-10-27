@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using BangazonDelta.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using BangazonDelta.ViewModels;
 
 namespace BangazonTeamDelta.Controllers
 {
