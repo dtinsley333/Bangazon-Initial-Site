@@ -38,6 +38,20 @@ namespace BangazonTeamDelta.Controllers
                     throw;
             }
         }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            IQueryable<object> users = from user in context.User select user;
+            
+            if (users == null)
+            {
+                return NotFound();
+            }
+
+            return View(users);
+        }
+
         public IActionResult Activate([FromBody]int UserId)
         {
           var user = context.User.SingleOrDefault(c => c.UserId == UserId);
