@@ -1,0 +1,26 @@
+@model BangazonDelta.Models.ProductType
+
+@{
+    ViewData["Title"] = "Product Type Details";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h3>@Html.DisplayFor(model => model.Name)</h3>
+
+<div class="row">
+    <div class="col-md-4">@Html.DisplayFor(model => model.Description)</div>
+</div>
+
+@foreach (var item in Model.Products)
+{
+    <div class="row">
+        <div class="col-md-4"><a asp-action="Detail" asp-route-id="@item.ProductId">@Html.DisplayFor(modelItem => item.Name)</a></div>
+        <div class="col-md-4">@Html.DisplayFor(modelItem => item.Description)</div>
+        <div class="col-md-4">$@Html.DisplayFor(modelItem => item.Price)</div>
+    </div>
+}
+
+<div>
+    &lt;&lt; <a asp-action="Index">Back to List</a>
+</div>
