@@ -2,6 +2,7 @@ using BangazonDelta.Models;
 using Microsoft.AspNetCore.Mvc;
 using BangazonDelta.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace BangazonTeamDelta.Controllers
 {
@@ -35,6 +36,19 @@ namespace BangazonTeamDelta.Controllers
             {
                     throw;
             }
+        }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            IQueryable<object> users = from user in context.User select user;
+            
+            if (users == null)
+            {
+                return NotFound();
+            }
+
+            return View(users);
         }
     }
 }
