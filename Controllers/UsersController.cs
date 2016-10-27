@@ -36,5 +36,9 @@ namespace BangazonTeamDelta.Controllers
                     throw;
             }
         }
+        [HttpGet]
+        public IActionResult Get(){
+            return View();
+        }
     }
 }
