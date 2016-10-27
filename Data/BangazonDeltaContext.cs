@@ -16,6 +16,7 @@ namespace BangazonDelta.Data
         public DbSet<Order> Order { get; set; }
         public DbSet<PaymentType> PaymentType { get; set; }
         public DbSet<OrderProduct> OrderProduct { get; set; }
+        public DbSet<ProductSubType> ProductSubType { get; set; }
 
         // Set up your default timestamp formats for each class using a timestamp
         // protected override void OnModelCreating(ModelBuilder modelBuilder)

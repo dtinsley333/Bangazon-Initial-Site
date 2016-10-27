@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace BangazonTeamDelta.Migrations
+namespace BangazonInitialSite.Migrations
 {
-    public partial class SecondMigration : Migration
+    public partial class newmigrationsss : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -34,6 +34,26 @@ namespace BangazonTeamDelta.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_User", x => x.UserId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ProductSubType",
+                columns: table => new
+                {
+                    ProductSubTypeId = table.Column<int>(nullable: false)
+                        .Annotation("Autoincrement", true),
+                    Name = table.Column<string>(nullable: false),
+                    ProductTypeId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductSubType", x => x.ProductSubTypeId);
+                    table.ForeignKey(
+                        name: "FK_ProductSubType_ProductType_ProductTypeId",
+                        column: x => x.ProductTypeId,
+                        principalTable: "ProductType",
+                        principalColumn: "ProductTypeId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -67,6 +87,7 @@ namespace BangazonTeamDelta.Migrations
                     Description = table.Column<string>(maxLength: 255, nullable: false),
                     Name = table.Column<string>(maxLength: 55, nullable: false),
                     Price = table.Column<double>(nullable: false),
+                    ProductSubTypeId = table.Column<int>(nullable: false),
                     ProductTypeId = table.Column<int>(nullable: false),
                     Sold = table.Column<bool>(nullable: false),
                     UserId = table.Column<int>(nullable: false)
@@ -174,12 +195,20 @@ namespace BangazonTeamDelta.Migrations
                 name: "IX_Product_UserId",
                 table: "Product",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductSubType_ProductTypeId",
+                table: "ProductSubType",
+                column: "ProductTypeId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "OrderProduct");
+
+            migrationBuilder.DropTable(
+                name: "ProductSubType");
 
             migrationBuilder.DropTable(
                 name: "Order");

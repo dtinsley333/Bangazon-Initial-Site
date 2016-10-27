@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BangazonDelta.Models
 {
@@ -26,13 +24,13 @@ namespace BangazonDelta.Models
 
     [Required]
     public int UserId { get; set; }
-
     public User User {get;set;}
 
     [Required]
     public int ProductTypeId { get; set; }
-
     public ICollection<OrderProduct> OrderProducts {get;set;}
 
+    [Required]
+    public int ProductSubTypeId {get; set;}
   }
 }

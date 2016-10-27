@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using BangazonDelta.Data;
 
-namespace BangazonTeamDelta.Migrations
+namespace BangazonInitialSite.Migrations
 {
     [DbContext(typeof(BangazonDeltaContext))]
     partial class BangazonDeltaContextModelSnapshot : ModelSnapshot
@@ -86,6 +86,8 @@ namespace BangazonTeamDelta.Migrations
 
                     b.Property<double>("Price");
 
+                    b.Property<int>("ProductSubTypeId");
+
                     b.Property<int>("ProductTypeId");
 
                     b.Property<bool>("Sold");
@@ -99,6 +101,23 @@ namespace BangazonTeamDelta.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Product");
+                });
+
+            modelBuilder.Entity("BangazonDelta.Models.ProductSubType", b =>
+                {
+                    b.Property<int>("ProductSubTypeId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.Property<int>("ProductTypeId");
+
+                    b.HasKey("ProductSubTypeId");
+
+                    b.HasIndex("ProductTypeId");
+
+                    b.ToTable("ProductSubType");
                 });
 
             modelBuilder.Entity("BangazonDelta.Models.ProductType", b =>
@@ -180,6 +199,14 @@ namespace BangazonTeamDelta.Migrations
                     b.HasOne("BangazonDelta.Models.User", "User")
                         .WithMany("Products")
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("BangazonDelta.Models.ProductSubType", b =>
+                {
+                    b.HasOne("BangazonDelta.Models.ProductType", "ProductType")
+                        .WithMany("ProductSubType")
+                        .HasForeignKey("ProductTypeId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
         }
