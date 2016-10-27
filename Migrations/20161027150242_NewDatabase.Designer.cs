@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using BangazonDelta.Data;
 
-namespace BangazonTeamDelta.Migrations
+namespace BangazonInitialSite.Migrations
 {
     [DbContext(typeof(BangazonDeltaContext))]
-    [Migration("20161025145650_SecondMigration")]
-    partial class SecondMigration
+    [Migration("20161027150242_NewDatabase")]
+    partial class NewDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
