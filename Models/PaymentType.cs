@@ -14,7 +14,7 @@ namespace BangazonDelta.Models
     public int PaymentTypeId {get;set;}
 
     [Required]
-    //we want AccountNumber to be required...//
+    //we want AccountNumber to be required, should be a STRING...//
     public int AccountNumber {get;set;}
 
     [Required]

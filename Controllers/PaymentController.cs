@@ -32,18 +32,32 @@ namespace BangazonTeamDelta.Controllers
         public async Task<IActionResult> AddPayment(PaymentType payment)
         
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
            PaymentType paymenttype = new PaymentType
            {
            AccountNumber= payment.AccountNumber,
            CVV= payment.CVV,
            Expiration= payment.Expiration,
-           //just hard coded a customer ID until I have more info on this...//
-           UserId= 1
+        //   this is like a form object that I'm getting from the form...//
+           UserId=1
            };
 
            //staging the database change...//
            context.PaymentType.Add(paymenttype);
-           await context.SaveChangesAsync();
+
+           try
+           {
+                await context.SaveChangesAsync();
+           }
+
+           catch (DbUpdateException)
+           {
+               throw;
+           }
            ViewData["UserMessage"] = "Payment Type Succesfully Saved!";
            //*** NEED THE NAME OF THE ORDER CONTROLLER HERE!!!//
             // return RedirectToAction("ActionName", "OrderControllerName", "someObject");
