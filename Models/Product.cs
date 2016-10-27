@@ -32,6 +32,5 @@ namespace BangazonDelta.Models
 
     [Required]
     public int ProductSubTypeId {get; set;}
-    // public ProductSubType ProductSubType {get;set;}
   }
 }
