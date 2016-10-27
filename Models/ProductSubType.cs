@@ -8,7 +8,7 @@ namespace BangazonDelta.Models
     [Key]
     public int ProductSubTypeId {get;set;}
     [Required]
-    public string name {get;set;}
+    public string Name {get;set;}
     [Required]
     public int ProductTypeId { get; set; }
     public ProductType ProductType {get;set;}
