@@ -76,7 +76,8 @@ namespace BangazonDelta.Data
                       Name = "Colored Pencils",
                       Price = 7.49,
                       Sold = false,
-                      UserId = users.Single(s => s.FirstName == "Tractor").UserId
+                      UserId = users.Single(s => s.FirstName == "Tractor").UserId,
+                      ProductSubType = 1
                   },
                   new Product { 
                       Description = "A 2012 iPod Shuffle. Headphones are included. 16G capacity.",
@@ -84,7 +85,8 @@ namespace BangazonDelta.Data
                       Name = "iPod Shuffle",
                       Price = 18.00,
                       Sold = false,
-                      UserId = users.Single(s => s.FirstName == "Steve").UserId
+                      UserId = users.Single(s => s.FirstName == "Steve").UserId,
+                      ProductSubType = 4
                   },
                   new Product { 
                       Description = "Stainless steel refrigerator. Three years old. Minor scratches.",
@@ -92,7 +94,8 @@ namespace BangazonDelta.Data
                       Name = "Samsung refrigerator",
                       Price = 500.00,
                       Sold = false,
-                      UserId = users.Single(s => s.FirstName == "Carson").UserId
+                      UserId = users.Single(s => s.FirstName == "Carson").UserId,
+                      ProductSubType = 5
                   },
                   new Product { 
                       Description = "The best headphones to combat construction.",
@@ -100,7 +103,8 @@ namespace BangazonDelta.Data
                       Name = "Construction Headphones",
                       Price = 70.00,
                       Sold = false,
-                      UserId = users.Single(s => s.FirstName == "Carson").UserId
+                      UserId = users.Single(s => s.FirstName == "Carson").UserId,
+                      ProductSubType = 4
                   },
                   new Product { 
                       Description = "Red Stapler. The one straight out of the Office Space set!",
@@ -108,7 +112,8 @@ namespace BangazonDelta.Data
                       Name = "Red Stapler",
                       Price = 999.00,
                       Sold = false,
-                      UserId = users.Single(s => s.FirstName == "Carson").UserId
+                      UserId = users.Single(s => s.FirstName == "Carson").UserId,
+                      ProductSubType = 3
                   },
                   new Product { 
                       Description = "The best paperclips you've ever used. A non-slip, secure hold to keep all of your documents together.",
@@ -116,7 +121,8 @@ namespace BangazonDelta.Data
                       Name = "Office Supplies",
                       Price = 1.00,
                       Sold = false,
-                      UserId = users.Single(s => s.FirstName == "Carson").UserId
+                      UserId = users.Single(s => s.FirstName == "Carson").UserId,
+                      ProductSubType = 3
                   },
                   new Product { 
                       Description = "Gel pens with the smoothest writing on the market.",
@@ -124,7 +130,8 @@ namespace BangazonDelta.Data
                       Name = "Office Supplies",
                       Price = 2.00,
                       Sold = false,
-                      UserId = users.Single(s => s.FirstName == "Carson").UserId
+                      UserId = users.Single(s => s.FirstName == "Carson").UserId,
+                      ProductSubType = 2
                   },
                   new Product { 
                       Description = "Yummy biscuits that even humans can eat! Healthy for your dog, healthy for you.",
@@ -132,7 +139,8 @@ namespace BangazonDelta.Data
                       Name = "Dog Stuff",
                       Price = 24.00,
                       Sold = false,
-                      UserId = users.Single(s => s.FirstName == "Carson").UserId
+                      UserId = users.Single(s => s.FirstName == "Carson").UserId,
+                      ProductSubType = 7
                   },
                   new Product { 
                       Description = "You're going to be jealous of your dog this bed is so comfortable.",
@@ -140,7 +148,8 @@ namespace BangazonDelta.Data
                       Name = "Dog Bed",
                       Price = 42.00,
                       Sold = false,
-                      UserId = users.Single(s => s.FirstName == "Carson").UserId
+                      UserId = users.Single(s => s.FirstName == "Carson").UserId,
+                      ProductSubType = 8
                   },
                   new Product { 
                       Description = "It looks like a ball you want to play tennis with, but this is exclusively for your dog.",
@@ -148,7 +157,8 @@ namespace BangazonDelta.Data
                       Name = "Tennis Ball",
                       Price = 10.00,
                       Sold = false,
-                      UserId = users.Single(s => s.FirstName == "Carson").UserId
+                      UserId = users.Single(s => s.FirstName == "Carson").UserId,
+                      ProductSubType = 9
                   }
               };
 
@@ -211,44 +221,44 @@ namespace BangazonDelta.Data
               var productSubType = new ProductSubType[]
               {
                   new ProductSubType { 
-                      Name: "Pencils",
-                      ProductTypeId: "Office Supplies"
+                      Name = "Pencils",
+                      ProductTypeId = 1
                   },
                   new ProductSubType { 
-                      Name: "Stationary"
-                      ProductTypeId: "Office Supplies"
+                      Name = "Pens"
+                      ProductTypeId = 2
                   },
                   new ProductSubType { 
-                      Name: "Markers"
-                      ProductTypeId: "Office Supplies"
+                      Name = "Office Equipment"
+                      ProductTypeId = 3
                   },
                   new ProductSubType { 
-                      Name: "Music"
-                      ProductTypeId: "Electronics"
+                      Name = "Music"
+                      ProductTypeId = 4
                   },
                   new ProductSubType { 
-                      Name: "Appliances"
-                      ProductTypeId: "Electronics"
+                      Name = "Appliances"
+                      ProductTypeId = 5
                   },
                   new ProductSubType { 
-                      Name: "Phones"
-                      ProductTypeId: "Electronics"
+                      Name = "Phones"
+                      ProductTypeId = 6
                   },
                   new ProductSubType { 
-                      Name: "Treats"
-                      ProductTypeId: "Dog Stuff"
+                      Name = "Treats"
+                      ProductTypeId = 7
                   },
                   new ProductSubType { 
-                      Name: "Bedding"
-                      ProductTypeId: "Dog Stuff"
+                      Name = "Bedding"
+                      ProductTypeId = 8
                   },
                   new ProductSubType { 
-                      Name: "Toys"
-                      ProductTypeId: "Dog Stuff"
+                      Name = "Toys"
+                      ProductTypeId = 9
                   },
                   new ProductSubType { 
-                      Name: "Other"
-                      ProductTypeId: "Dog Stuff"
+                      Name = "Other"
+                      ProductTypeId = 10
                   }
               };
 
