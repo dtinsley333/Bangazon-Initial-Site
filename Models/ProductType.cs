@@ -18,7 +18,8 @@ namespace BangazonDelta.Models
       [Required]
       [StringLength(255)]
       public string Description {get;set;}
+      public ICollection<Product> Products {get;set;}
 
-      public ICollection<Product> Products {get;set;} 
+      public ICollection<ProductSubType> ProductSubType {get;set;} 
   }
 }
