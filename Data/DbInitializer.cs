@@ -51,11 +51,11 @@ namespace BangazonDelta.Data
                       Description = "The Electronics Department"
                   },
                   new ProductType { 
-                      Name = "Appliances",
+                      Name = "Dog Stuff",
                       Description = "Household appliances! Fridges! Washing machines!"
                   },
                   new ProductType { 
-                      Name = "Housewares",
+                      Name = "Office Supplies",
                       Description = "Coffee makers!! Vacuum cleaners!"
                   },
               };
@@ -222,43 +222,43 @@ namespace BangazonDelta.Data
               {
                   new ProductSubType { 
                       Name = "Pencils",
-                      ProductTypeId = 1
-                  },
-                  new ProductSubType { 
-                      Name = "Pens"
-                      ProductTypeId = 2
-                  },
-                  new ProductSubType { 
-                      Name = "Office Equipment"
                       ProductTypeId = 3
                   },
                   new ProductSubType { 
-                      Name = "Music"
-                      ProductTypeId = 4
+                      Name = "Pens",
+                      ProductTypeId = 3
                   },
                   new ProductSubType { 
-                      Name = "Appliances"
-                      ProductTypeId = 5
+                      Name = "Office Equipment",
+                      ProductTypeId = 3
                   },
                   new ProductSubType { 
-                      Name = "Phones"
-                      ProductTypeId = 6
+                      Name = "Music",
+                      ProductTypeId = 1
                   },
                   new ProductSubType { 
-                      Name = "Treats"
-                      ProductTypeId = 7
+                      Name = "Appliances",
+                      ProductTypeId = 1
                   },
                   new ProductSubType { 
-                      Name = "Bedding"
-                      ProductTypeId = 8
+                      Name = "Phones",
+                      ProductTypeId = 1
                   },
                   new ProductSubType { 
-                      Name = "Toys"
-                      ProductTypeId = 9
+                      Name = "Treats",
+                      ProductTypeId = 2
                   },
                   new ProductSubType { 
-                      Name = "Other"
-                      ProductTypeId = 10
+                      Name = "Bedding",
+                      ProductTypeId = 2
+                  },
+                  new ProductSubType { 
+                      Name = "Toys",
+                      ProductTypeId = 2
+                  },
+                  new ProductSubType { 
+                      Name = "Other",
+                      ProductTypeId = 0
                   }
               };
 
