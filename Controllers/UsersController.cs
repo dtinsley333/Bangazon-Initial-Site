@@ -1,7 +1,6 @@
 using BangazonDelta.Models;
-using BangazonDelta.ViewModels;
-using BangazonDelta.Data;
 using Microsoft.AspNetCore.Mvc;
+using BangazonDelta.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
