@@ -52,6 +52,9 @@ namespace BangazonTeamDelta.Controllers
            try
            {
                 await context.SaveChangesAsync();
+                //the first word (INDEX) refers to the method that will be run, the second word (ORDERS) refers to the 
+                //Model where this method is being run!//
+                return RedirectToAction("Index", "Orders", 1);
            }
 
            catch (DbUpdateException)
