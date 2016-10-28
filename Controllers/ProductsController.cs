@@ -67,6 +67,7 @@ namespace BangazonTeamDelta.Controllers
 
             return View(product);
         }
+
         [HttpGet]
         public IActionResult Create()
         {
