@@ -2,18 +2,30 @@
 
 $(document).ready(function () {
     //^allows us to use jquery
-  $("#ProductTypeId").on("change", function (e) {
+    var subtypes = []
     $.ajax({
-      url: "/Products/GetSubType/",
-      method: "POST",
+      url: "/Products/GetSubTypesForDropdown",
+      method: "GET",
       headers: {
         "Content-Type": "application/json"
-      },
-      data: {
-        "TypeId": $(this).val() 
       }
+    })
+    .success(function(subTypes){
+        subtypes.push(subTypes);
+        console.log("subTypes", subTypes);
     });
-    console.log("the value from the dropdown type", $(this).val())
-    // location.reload();
-  });
+    $(".ProductSubTypeId").hide();
+  $("#ProductTypeId").on("change", function (e) {
+      $(".ProductSubTypeId").show();
+      $(".ProductSubTypeId").html(`<select></select>`);
+        console.log("this.val",$(this).val());
+        console.log("item.productypeid", subtypes)
+    for(var key in subtypes[0]) {
+        console.log("key", key)
+        if(subtypes[0][key].productTypeId == $(this).val()){
+            $(".ProductSubTypeId").append(`<option value="${subtypes[0][key].productSubTypeId}">${subtypes[0][key].name}</option>`);
+            console.log("item to append", subtypes[0][key]);
+        }
+    }
+  })
 });

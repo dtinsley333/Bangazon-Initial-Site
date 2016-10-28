@@ -36,15 +36,16 @@
             <label asp-for="ProductTypeId" class="col-md-2 control-label"></label>
             <div class="col-md-10">
                 @Html.DropDownList("ProductTypeId")
-                <span asp-validation-for="ProductTypeId" class="text-danger" />
-            </div>
-        </div>
+                <span asp-validation-for="ProductTypeId" />
         <!--subtype dropdown-->
-        <div class="form-group">
-            <!--<label asp-for="SubTypeId" class="col-md-2 control-label"></label>-->
-            <div class="col-md-10">
-                @Html.DropDownList("subtypes")
-                <!--<span asp-validation-for="SubTypeId" class="text-danger" />-->
+            <br><br>
+            <div class="form-group">
+                <label asp-for="ProductSubTypeId"></label>
+                <div class="col-md-10 ">
+                    <select class="ProductSubTypeId"></select>  
+                    <span asp-validation-for="ProductSubTypeId" />  
+                </div>
+            </div>
             </div>
         </div>
         <div class="form-group">
