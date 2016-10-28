@@ -67,6 +67,59 @@ namespace BangazonDelta.Data
               context.SaveChanges();
 
 
+
+            //   SUBCATEGORIES. MD - Seeding the database.
+              var productSubType = new ProductSubType[]
+              {
+                  new ProductSubType { 
+                      Name = "Pencils",
+                      ProductTypeId = 3
+                  },
+                  new ProductSubType { 
+                      Name = "Pens",
+                      ProductTypeId = 3
+                  },
+                  new ProductSubType { 
+                      Name = "Office Equipment",
+                      ProductTypeId = 3
+                  },
+                  new ProductSubType { 
+                      Name = "Music",
+                      ProductTypeId = 1
+                  },
+                  new ProductSubType { 
+                      Name = "Appliances",
+                      ProductTypeId = 1
+                  },
+                  new ProductSubType { 
+                      Name = "Phones",
+                      ProductTypeId = 1
+                  },
+                  new ProductSubType { 
+                      Name = "Treats",
+                      ProductTypeId = 2
+                  },
+                  new ProductSubType { 
+                      Name = "Bedding",
+                      ProductTypeId = 2
+                  },
+                  new ProductSubType { 
+                      Name = "Toys",
+                      ProductTypeId = 2
+                  },
+                  new ProductSubType { 
+                      Name = "Other",
+                      ProductTypeId = 0
+                  }
+              };
+
+              foreach (ProductSubType i in productSubType)
+              {
+                  context.ProductSubType.Add(i);
+              }
+              context.SaveChanges();
+
+
             //   PRODUCTS
               var products = new Product[]
               {
@@ -117,8 +170,8 @@ namespace BangazonDelta.Data
                   },
                   new Product { 
                       Description = "The best paperclips you've ever used. A non-slip, secure hold to keep all of your documents together.",
-                      ProductTypeId = productTypes.Single(s => s.Name == "Paperclips").ProductTypeId,
-                      Name = "Office Supplies",
+                      ProductTypeId = productTypes.Single(s => s.Name == "Office Supplies").ProductTypeId,
+                      Name = "Paperclips",
                       Price = 1.00,
                       Sold = false,
                       UserId = users.Single(s => s.FirstName == "Carson").UserId,
@@ -126,8 +179,8 @@ namespace BangazonDelta.Data
                   },
                   new Product { 
                       Description = "Gel pens with the smoothest writing on the market.",
-                      ProductTypeId = productTypes.Single(s => s.Name == "Pens").ProductTypeId,
-                      Name = "Office Supplies",
+                      ProductTypeId = productTypes.Single(s => s.Name == "Office Supplies").ProductTypeId,
+                      Name = "Pens",
                       Price = 2.00,
                       Sold = false,
                       UserId = users.Single(s => s.FirstName == "Carson").UserId,
@@ -135,8 +188,8 @@ namespace BangazonDelta.Data
                   },
                   new Product { 
                       Description = "Yummy biscuits that even humans can eat! Healthy for your dog, healthy for you.",
-                      ProductTypeId = productTypes.Single(s => s.Name == "Biscuits").ProductTypeId,
-                      Name = "Dog Stuff",
+                      ProductTypeId = productTypes.Single(s => s.Name == "Dog Stuff").ProductTypeId,
+                      Name = "Biscuits",
                       Price = 24.00,
                       Sold = false,
                       UserId = users.Single(s => s.FirstName == "Carson").UserId,
@@ -169,29 +222,6 @@ namespace BangazonDelta.Data
               context.SaveChanges();
 
 
-            //   ORDERS
-              var orders = new Order[]
-              {
-                  new Order { 
-                      UserId = users.Single(s => s.FirstName == "Tractor").UserId,
-                      PaymentTypeId = null
-                  },
-                  new Order { 
-                      UserId = users.Single(s => s.FirstName == "Steve").UserId,
-                      PaymentTypeId = null
-                  },
-                  new Order { 
-                      UserId = users.Single(s => s.FirstName == "Carson").UserId,
-                      PaymentTypeId = null
-                  }
-              };
-
-              foreach (Order i in orders)
-              {
-                  context.Order.Add(i);
-              }
-              context.SaveChanges();
-
 
             //   ORDERPRODUCTS
               var orderProducts = new OrderProduct[]
@@ -215,56 +245,28 @@ namespace BangazonDelta.Data
                   context.OrderProduct.Add(i);
               }
               context.SaveChanges();
+              
 
-
-              //   SUBCATEGORIES. MD - Seeding the database.
-              var productSubType = new ProductSubType[]
+            //   ORDERS
+              var orders = new Order[]
               {
-                  new ProductSubType { 
-                      Name = "Pencils",
-                      ProductTypeId = 3
+                  new Order { 
+                      UserId = users.Single(s => s.FirstName == "Tractor").UserId,
+                      PaymentTypeId = null
                   },
-                  new ProductSubType { 
-                      Name = "Pens",
-                      ProductTypeId = 3
+                  new Order { 
+                      UserId = users.Single(s => s.FirstName == "Steve").UserId,
+                      PaymentTypeId = null
                   },
-                  new ProductSubType { 
-                      Name = "Office Equipment",
-                      ProductTypeId = 3
-                  },
-                  new ProductSubType { 
-                      Name = "Music",
-                      ProductTypeId = 1
-                  },
-                  new ProductSubType { 
-                      Name = "Appliances",
-                      ProductTypeId = 1
-                  },
-                  new ProductSubType { 
-                      Name = "Phones",
-                      ProductTypeId = 1
-                  },
-                  new ProductSubType { 
-                      Name = "Treats",
-                      ProductTypeId = 2
-                  },
-                  new ProductSubType { 
-                      Name = "Bedding",
-                      ProductTypeId = 2
-                  },
-                  new ProductSubType { 
-                      Name = "Toys",
-                      ProductTypeId = 2
-                  },
-                  new ProductSubType { 
-                      Name = "Other",
-                      ProductTypeId = 0
+                  new Order { 
+                      UserId = users.Single(s => s.FirstName == "Carson").UserId,
+                      PaymentTypeId = null
                   }
               };
 
-              foreach (ProductSubType i in productSubType)
+              foreach (Order i in orders)
               {
-                  context.ProductSubType.Add(i);
+                  context.Order.Add(i);
               }
               context.SaveChanges();
 
