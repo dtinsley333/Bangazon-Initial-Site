@@ -10,35 +10,35 @@ namespace BangazonDelta.ViewModels
   {
     public IEnumerable<SelectListItem> UserId { get; set; }
     private BangazonDeltaContext context;
-    // private ActiveUser singleton = ActiveUser.Instance;
-    // public User ChosenUser 
-    // {
-    //   get
-    //   {
-    //     // Get the current value of the customer property of our singleton
-    //     Customer customer = singleton.Customer;
+    private ActiveUser singleton = ActiveUser.Instance;
+    public User ChosenUser 
+    {
+      get
+      {
+        // Get the current value of the customer property of our singleton
+        User user = singleton.User;
 
-    //     // If no customer has been chosen yet, it's value will be null
-    //     if (customer == null)
-    //     {
-    //       // Return fake customer for now
-    //       return new Customer () {
-    //         FirstName = "Create",
-    //         LastName = "Account"
-    //       };
-    //     }
+        // If no customer has been chosen yet, it's value will be null
+        if (user == null)
+        {
+          // Return fake customer for now
+          return new User () {
+            FirstName = "Create",
+            LastName = "Account"
+          };
+        }
 
-    //     // If there is a customer chosen, return it
-    //     return customer;
-    //   }
-    //   set
-    //   {
-    //     if (value != null)
-    //     {
-    //       singleton.Customer = value;
-    //     }
-    //   }
-    // }
+        // If there is a customer chosen, return it
+        return user;
+      }
+      set
+      {
+        if (value != null)
+        {
+          singleton.User = value;
+        }
+      }
+    }
     public BaseViewModel(BangazonDeltaContext ctx)
     {
         context = ctx;

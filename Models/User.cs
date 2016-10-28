@@ -21,6 +21,6 @@ namespace BangazonDelta.Models
 
     public ICollection<Product> Products {get;set;}
 
-    public ICollection<PaymentType> PaymentTypes {get;set;}
+    // public ICollection<PaymentType> PaymentTypes {get;set;}
   }
 }
