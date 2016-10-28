@@ -31,11 +31,20 @@
                 <span asp-validation-for="Price" class="text-danger" />
             </div>
         </div>
+        <!--type dropdown-->
         <div class="form-group">
             <label asp-for="ProductTypeId" class="col-md-2 control-label"></label>
             <div class="col-md-10">
                 @Html.DropDownList("ProductTypeId")
                 <span asp-validation-for="ProductTypeId" class="text-danger" />
+            </div>
+        </div>
+        <!--subtype dropdown-->
+        <div class="form-group">
+            <!--<label asp-for="SubTypeId" class="col-md-2 control-label"></label>-->
+            <div class="col-md-10">
+                @Html.DropDownList("subtypes")
+                <!--<span asp-validation-for="SubTypeId" class="text-danger" />-->
             </div>
         </div>
         <div class="form-group">
