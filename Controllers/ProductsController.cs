@@ -71,7 +71,7 @@ namespace BangazonTeamDelta.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public IActionResult Create([FromBody] int id)
         {
             ViewData["ProductTypeId"] = context.ProductType
                                        .OrderBy(l => l.Name)
@@ -81,10 +81,9 @@ namespace BangazonTeamDelta.Controllers
                                            Value = li.ProductTypeId.ToString()
                                         });
             ViewData["SubTypes"] = context.ProductSubType
+                                       .Where(c => c.ProductTypeId == 1)
                                        .OrderBy(l => l.Name)
                                        .AsEnumerable()
-                                    //    .Where(
-                                    //    )
                                        .Select(li => new SelectListItem { 
                                            Text = $"{li.Name}",
                                            Value = li.ProductSubTypeId.ToString()
@@ -92,8 +91,8 @@ namespace BangazonTeamDelta.Controllers
             return View();
         }
 
-        [HttpGet]
-        public IActionResult GetSubType([FromBody] int id)
+        [HttpPost]
+        public IActionResult GetSubTypesForDropdown([FromBody] int id)
         {
             //this method is to create the dropdown for the user when they are creating a product and need to select a subtype
             //passing in the producttype id to the method

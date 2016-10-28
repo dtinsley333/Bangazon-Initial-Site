@@ -13,6 +13,7 @@ $(document).ready(function () {
         "TypeId": $(this).val() 
       }
     });
+    console.log("the value from the dropdown type", $(this).val())
     // location.reload();
   });
 });
