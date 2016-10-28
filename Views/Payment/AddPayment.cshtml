@@ -1,0 +1,36 @@
+@model BangazonDelta.Models.PaymentType
+
+<form asp-action="AddPayment">
+   <div class="form-horizontal">
+       <h4>Create New Payment</h4>
+       <hr />
+       <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+       <div class="form-group">
+           <label asp-for="AccountNumber" class="col-md-2 control-label"></label> 
+           <div class="col-md-10">
+               <input asp-for="AccountNumber" class="form-control" /> <span style="color:gray;">(example:12345678)</span>
+               <span asp-validation-for="AccountNumber" class="text-danger" />
+           </div>
+       </div>
+       <div class="form-group">
+           <label asp-for="CVV" class="col-md-2 control-label"></label>
+           <div class="col-md-10">
+               <input asp-for="CVV" class="form-control" /> <span style="color:gray;">(example:123)</span>
+               <span asp-validation-for="CVV" class="text-danger" />
+           </div>
+       </div>
+       <div class="form-group">
+           <label asp-for="Expiration" class="col-md-2 control-label"></label>
+           <div class="col-md-10">
+               <input asp-for="Expiration" class="form-control" /> <span style="color:gray;">(example:mm/dd/yyyy)</span>
+               <span asp-validation-for="Expiration" class="text-danger" />
+           </div>
+       </div>
+       
+       <div class="form-group">
+           <div class="col-md-offset-2 col-md-10">
+               <input type="submit" value="Create" class="btn btn-default" />
+           </div>
+       </div>
+   </div>
+</form>

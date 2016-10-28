@@ -1,0 +1,19 @@
+
+@model <BangazonDelta.Models.ConfirmationMessage
+
+@{
+    ViewData["Title"] = "Confirmation Message Page";
+}
+
+{
+    <div class="row">
+        
+        <p>Thank You For Your Order!</p>
+        <br>
+        <!--HOW DO I LINK THE ORDERID TO THE BELOW SECTION OF THE VIEW???-->
+        <p>Order Number:[OrderId]</p>
+        <br>
+        <p>We are currently processing your order.  You should recieve it within 28-56 days.</p>
+        <div class="col-md-3"><a asp-action="Detail" asp-route-id="@item.ProductId">Details</a></div>
+    </div>
+}
