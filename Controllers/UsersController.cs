@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using BangazonDelta.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using BangazonDelta.ViewModels;
 
 namespace BangazonTeamDelta.Controllers
 {
@@ -49,6 +50,22 @@ namespace BangazonTeamDelta.Controllers
             }
 
             return View(users);
+        }
+
+        public IActionResult Activate([FromBody]int UserId)
+        {
+          var user = context.User.SingleOrDefault(c => c.UserId == UserId);
+
+          if (user == null)
+          {
+            return NotFound();
+          }
+
+          ActiveUser.Instance.User = user;
+
+
+          string json = "{'result': 'true'}";
+          return new ContentResult { Content = json, ContentType = "application/json" };
         }
     }
 }
