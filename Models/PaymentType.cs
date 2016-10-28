@@ -15,6 +15,7 @@ namespace BangazonDelta.Models
 
     [Required]
     //we want AccountNumber to be required, should be a STRING...//
+    [Display(Name= "Account Number", Description= "Please enter an account number")]
     public int AccountNumber {get;set;}
 
     [Required]
