@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using BangazonDelta.Data;
 
-namespace BangazonInitialSite.Migrations
+namespace BangazonTeamDelta.Migrations
 {
     [DbContext(typeof(BangazonDeltaContext))]
-    [Migration("20161027161742_newmigrationsss")]
-    partial class newmigrationsss
+    [Migration("20161031140325_HalloweenMigrations")]
+    partial class HalloweenMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -185,7 +185,7 @@ namespace BangazonInitialSite.Migrations
             modelBuilder.Entity("BangazonDelta.Models.PaymentType", b =>
                 {
                     b.HasOne("BangazonDelta.Models.User", "User")
-                        .WithMany("PaymentTypes")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
