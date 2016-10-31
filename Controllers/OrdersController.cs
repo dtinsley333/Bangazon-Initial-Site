@@ -23,11 +23,10 @@ namespace BangazonTeamDelta.Controllers
         }
         public async Task<IActionResult> Index([FromRoute]int userId)
         {
-            //if there is no id in the route then it will return 404
-            if (userId == null)
-            {
-                return NotFound();
-            }
+            // This is an async function, but "await" is never used
+            // Trying to figure out which part of this call is await-able
+            // and where to do it in the LINQ call
+            // Or does this even need to BE async??? We may never know
 
             var productsOnOrder =
             from ord in context.Order
@@ -44,6 +43,14 @@ namespace BangazonTeamDelta.Controllers
 
             if (productsOnOrder == null)
             {
+                // This is where we could build a new ViewModel for when the user's cart is empty
+                // All of the logic for an empty order view will be within this IF block
+                // In pseudo-code,, it might be something like...
+
+                // EmptyOrderViewModel emptyOrder = new EmptyOrderViewModel();
+                // emptyOrder.message = "The user's cart is empty!";
+                // return View(emptyOrder);
+
                 return View();
             }
             return View(uorder);
