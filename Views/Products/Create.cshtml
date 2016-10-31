@@ -42,7 +42,7 @@
             <div class="form-group">
                 <label asp-for="ProductSubTypeId"></label>
                 <div class="col-md-10 ">
-                    <select class="ProductSubTypeId"></select>  
+                    @Html.DropDownList("ProductSubTypeId", new List<SelectListItem>(), new {@class="ProductSubTypeId"} )
                     <span asp-validation-for="ProductSubTypeId" />  
                 </div>
             </div>
