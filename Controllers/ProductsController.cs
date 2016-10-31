@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -74,8 +72,40 @@ namespace BangazonTeamDelta.Controllers
                                            Text = li.Name,
                                            Value = li.ProductTypeId.ToString()
                                         });
+            // ViewData["SubTypes"] = context.ProductSubType
+            //                            .Where(c => c.ProductTypeId == 1)
+            //                            .OrderBy(l => l.Name)
+            //                            .AsEnumerable()
+            //                            .Select(li => new SelectListItem { 
+            //                                Text = $"{li.Name}",
+            //                                Value = li.ProductSubTypeId.ToString()
+            //                             });
             return View();
         }
+
+        [HttpGet]
+        public DbSet<ProductSubType> GetSubTypesForDropdown()
+        {
+            // List subtypes = new List<ProductSubType>{};
+            var subTypes  = context.ProductSubType;//.ToListAsync();
+            //this method is to create the dropdown for the user when they are creating a product and need to select a subtype
+            //passing in the producttype id to the method
+            // IQueryable<object> subtypes = 
+            // from types in context.ProductType 
+            // types = querying the database for all ProductTypes
+            // join subtype in context.ProductSubType on id equals subtype.ProductSubTypeId
+            //then, go to the ProductSubType table and get all of those too
+            // where types.ProductTypeId == id 
+            //then, get the subtypes that match the producttypeId we passed in
+            // select subtype;
+            //BINGO!!^
+
+            // return View(subtypes);
+            // ViewData["SubTypes"] = subtypes;
+            return subTypes;
+            //this is the variable that we assigned our query to, and what we were searching the database for
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Product product)
